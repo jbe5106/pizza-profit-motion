@@ -1,0 +1,44 @@
+<template>
+  <style>
+    @font-face { font-family: "KR"; src: local("Malgun Gothic Bold"), local("MalgunGothicBold"); font-weight: 700; }
+    #root { position: absolute; inset: 0; overflow: visible; pointer-events: none; }
+    .cap-g { position: absolute; left: 0; right: 0; bottom: 96px; text-align: center; opacity: 0; overflow: visible; }
+    .cap-t { display: inline-block; background: #000000; color: #ffffff; font-family: "KR"; font-weight: 700; font-size: 50px; line-height: 1.3; padding: 12px 30px; letter-spacing: -0.01em; }
+  </style>
+  <div id="root" data-composition-id="captions" data-width="1920" data-height="1080">
+      <div class="cap-g" id="cap-0"><span class="cap-t">이익의 공식.</span></div>
+      <div class="cap-g" id="cap-1"><span class="cap-t">가격 곱하기 수량,</span></div>
+      <div class="cap-g" id="cap-2"><span class="cap-t">빼기 비용.</span></div>
+      <div class="cap-g" id="cap-3"><span class="cap-t">4년간 가격은 23% 올랐습니다.</span></div>
+      <div class="cap-g" id="cap-4"><span class="cap-t">수량은, 단 1%.</span></div>
+      <div class="cap-g" id="cap-5"><span class="cap-t">그사이 인건비는 33%,</span></div>
+      <div class="cap-g" id="cap-6"><span class="cap-t">배달앱 수수료는 26% 뛰었습니다.</span></div>
+      <div class="cap-g" id="cap-7"><span class="cap-t">이익률은 17.7에서 17.4%.</span></div>
+      <div class="cap-g" id="cap-8"><span class="cap-t">제자리입니다.</span></div>
+      <div class="cap-g" id="cap-9"><span class="cap-t">가격은 한계입니다.</span></div>
+      <div class="cap-g" id="cap-10"><span class="cap-t">이제 수량을 늘리고,</span></div>
+      <div class="cap-g" id="cap-11"><span class="cap-t">비용을 줄여야 합니다.</span></div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    function show(sel, start, end) {
+      tl.set(sel, { opacity: 0, visibility: "visible" }, 0);
+      tl.fromTo(sel, { opacity: 0 }, { opacity: 1, duration: 0.1, ease: "power2.out", immediateRender: false }, start);
+      tl.to(sel, { opacity: 0, duration: 0.1, ease: "power2.in" }, end - 0.1);
+      tl.set(sel, { opacity: 0, visibility: "hidden" }, end);
+    }
+    show("#cap-0", 0.51, 2.19);
+    show("#cap-1", 2.23, 3.76);
+    show("#cap-2", 3.8, 5.31);
+    show("#cap-3", 5.88, 9.24);
+    show("#cap-4", 9.43, 12.07);
+    show("#cap-5", 12.11, 14.47);
+    show("#cap-6", 14.51, 17.71);
+    show("#cap-7", 17.91, 21.37);
+    show("#cap-8", 21.54, 23.26);
+    show("#cap-9", 23.63, 25.62);
+    show("#cap-10", 25.8, 27.09);
+    show("#cap-11", 27.13, 29.9);
+    window.__timelines["captions"] = tl;
+  </script>
+</template>

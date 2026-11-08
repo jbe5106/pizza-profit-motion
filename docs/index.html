@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>이익의 공식</title>
+<meta name="description" content="Price × Quantity − Cost = Profit 구조로 본 피자 9개 매장 2022→2026 실적, 30초 키네틱 타이포그래피 영상" />
+<style>
+  :root { --bg: #d7261e; --ink: #141414; --paper: #ffffff; --accent: #ffc21a; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--paper); font-family: "Pretendard", "Malgun Gothic", "Apple SD Gothic Neo", system-ui, sans-serif; min-height: 100vh; }
+  main { max-width: 1100px; margin: 0 auto; padding: 48px 16px 64px; }
+  h1 { font-size: clamp(32px, 6vw, 64px); font-weight: 900; letter-spacing: -0.02em; line-height: 1.1; }
+  h1 b { color: var(--accent); }
+  .eq { margin-top: 12px; font-size: clamp(16px, 2.6vw, 26px); font-weight: 800; color: var(--ink); }
+  .eq span { background: var(--accent); padding: 0 8px; }
+  .player { margin-top: 28px; border: 6px solid var(--ink); box-shadow: 12px 12px 0 var(--ink); background: #000; }
+  video { display: block; width: 100%; height: auto; }
+  ul { margin-top: 40px; list-style: none; display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+  li { background: var(--paper); color: var(--ink); padding: 16px 18px; border: 4px solid var(--ink); }
+  li strong { display: block; font-size: 28px; font-weight: 900; color: var(--bg); }
+  footer { margin-top: 36px; font-size: 14px; opacity: 0.85; line-height: 1.6; }
+  footer a { color: var(--paper); }
+</style>
+</head>
+<body>
+<main>
+  <h1>이익의 <b>공식</b></h1>
+  <p class="eq">PRICE × QUANTITY − COST = <span>PROFIT</span></p>
+  <div class="player">
+    <video src="video.mp4" poster="poster.jpg" controls playsinline preload="metadata"></video>
+  </div>
+  <ul>
+    <li><strong>+23%</strong>가격(객단가)</li>
+    <li><strong>+1%</strong>수량(주문 건수)</li>
+    <li><strong>+33% · +26%</strong>인건비 · 배달앱 수수료</li>
+    <li><strong>17.7% → 17.4%</strong>영업이익률</li>
+  </ul>
+  <footer>
+    피자 프랜차이즈 9개 매장(가상 데이터) · 2022 → 2026년 1~8월 누계 비교.<br />
+    HTML·GSAP 코드로 만든 30초 키네틱 타이포그래피 영상(HyperFrames), 음성은 Microsoft 신경망 TTS.
+    <a href="https://github.com/jbe5106/pizza-profit-motion">소스 코드</a>
+  </footer>
+</main>
+</body>
+</html>

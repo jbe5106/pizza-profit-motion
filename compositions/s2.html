@@ -1,0 +1,57 @@
+<template>
+  <style>
+    @font-face { font-family: "KR"; src: local("Malgun Gothic Bold"), local("MalgunGothicBold"); font-weight: 700; }
+    #root { position: absolute; inset: 0; background: #ffffff; overflow: hidden; }
+    #s2-tag { position: absolute; left: 192px; top: 120px; font-family: "KR"; font-weight: 700; font-size: 40px; color: #6b6b6b; }
+    .s2-col { position: absolute; top: 230px; width: 720px; }
+    #s2-left { left: 192px; }
+    #s2-right { left: 960px; }
+    .s2-head { font-family: "Archivo Black"; font-size: 96px; line-height: 1; color: #141414; }
+    .s2-kr { font-family: "KR"; font-weight: 700; font-size: 40px; color: #141414; margin-top: 14px; }
+    .s2-num { font-family: "Archivo Black"; font-size: 220px; line-height: 1; margin-top: 40px; letter-spacing: -0.03em; }
+    #s2-pnum { color: #d7261e; }
+    #s2-qnum { color: #141414; }
+    .s2-track { position: relative; margin-top: 50px; width: 560px; height: 56px; }
+    .s2-base { position: absolute; left: 0; top: 0; width: 440px; height: 56px; background: #e6e6e6; }
+    .s2-bar { position: absolute; left: 0; top: 0; height: 56px; transform-origin: left center; }
+    #s2-pbar { width: 541px; background: #d7261e; }
+    #s2-qbar { width: 444px; background: #141414; }
+    .s2-mark { position: absolute; left: 440px; top: -18px; width: 4px; height: 92px; background: #141414; }
+    .s2-note { position: absolute; left: 0; top: 76px; font-family: "KR"; font-weight: 700; font-size: 30px; color: #6b6b6b; white-space: nowrap; }
+  </style>
+  <div id="root" data-composition-id="s2" data-width="1920" data-height="1080">
+    <div id="s2-tag">2022 → 2026 · 1~8월 누계 · 9개 매장</div>
+    <div id="s2-left" class="s2-col">
+      <div class="s2-head">PRICE</div>
+      <div class="s2-kr">가격 · 객단가</div>
+      <div class="s2-num" id="s2-pnum">+0%</div>
+      <div class="s2-track"><div class="s2-base"></div><div class="s2-bar" id="s2-pbar"></div><div class="s2-mark"></div><div class="s2-note">2022 = 100</div></div>
+    </div>
+    <div id="s2-right" class="s2-col">
+      <div class="s2-head" id="s2-qhead">QUANTITY</div>
+      <div class="s2-kr" id="s2-qkr">수량 · 주문 건수</div>
+      <div class="s2-num" id="s2-qnum">+0%</div>
+      <div class="s2-track" id="s2-qtrack"><div class="s2-base"></div><div class="s2-bar" id="s2-qbar"></div><div class="s2-mark"></div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const pn = document.querySelector("#s2-pnum");
+    const qn = document.querySelector("#s2-qnum");
+    const p = { v: 0 }, q = { v: 0 };
+    // left column is up on frame 0; PRICE head punches on "가격"
+    tl.fromTo("#s2-left .s2-head", { scale: 1.3, transformOrigin: "left center" }, { scale: 1, duration: 0.4, ease: "expo.out" }, 0.75);
+    // +23% counts with bar on "23퍼센트 올랐습니다"
+    tl.fromTo("#s2-pbar", { scaleX: 0 }, { scaleX: 1, duration: 1.4, ease: "power3.out" }, 1.1);
+    tl.fromTo(p, { v: 0 }, { v: 23, duration: 1.4, ease: "power3.out", onUpdate: () => (pn.textContent = "+" + Math.round(p.v) + "%") }, 1.1);
+    tl.fromTo("#s2-pnum", { scale: 1 }, { scale: 1.08, duration: 0.12, yoyo: true, repeat: 1, transformOrigin: "left center", ease: "power2.out" }, 2.5);
+    // QUANTITY column cuts in on "수량은"
+    tl.fromTo(["#s2-qhead", "#s2-qkr"], { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.3, ease: "expo.out", stagger: 0.05 }, 3.9);
+    tl.fromTo(["#s2-qnum", "#s2-qtrack"], { opacity: 0 }, { opacity: 1, duration: 0.15 }, 4.1);
+    // "단 1퍼센트": tiny bar move, number lands with a dead stop
+    tl.fromTo("#s2-qbar", { scaleX: 0 }, { scaleX: 1, duration: 0.6, ease: "power2.out" }, 4.2);
+    tl.fromTo(q, { v: 0 }, { v: 1, duration: 0.3, ease: "none", onUpdate: () => (qn.textContent = "+" + Math.round(q.v) + "%") }, 4.75);
+    tl.fromTo("#s2-qnum", { x: 0 }, { x: 14, duration: 0.05, yoyo: true, repeat: 5, ease: "none" }, 5.1);
+    window.__timelines["s2"] = tl;
+  </script>
+</template>

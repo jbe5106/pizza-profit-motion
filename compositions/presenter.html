@@ -1,0 +1,93 @@
+<template>
+  <style>
+    @font-face { font-family: "KR"; src: local("Malgun Gothic Bold"), local("MalgunGothicBold"); font-weight: 700; }
+    #root { position: absolute; inset: 0; pointer-events: none; }
+    #pr-card { position: absolute;  left: 1494px; top: 650px; width: 300px; height: 360px; background: #ffffff; border: 6px solid #141414; box-shadow: 12px 12px 0 #141414; overflow: hidden; }
+    #pr-svg { position: absolute; left: 0; top: 0; width: 288px; height: 348px; }
+    #pr-tag { position: absolute; left: 0; right: 0; bottom: 0; height: 52px; background: #141414; color: #ffffff; font-family: "KR"; font-weight: 700; font-size: 28px; line-height: 52px; text-align: center; }
+  </style>
+  <div id="root" data-composition-id="presenter" data-width="1920" data-height="1080">
+    <div id="pr-card" data-layout-allow-overflow>
+      <svg id="pr-svg" viewBox="0 0 288 348" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="288" height="348" fill="#ffc21a" />
+        <circle cx="144" cy="168" r="118" fill="#ffd75e" />
+        <g id="pr-body">
+          <!-- jacket -->
+          <path d="M20 348 C26 286 58 262 104 252 L184 252 C230 262 262 286 268 348 Z" fill="#1f2a44" />
+          <!-- shirt + tie -->
+          <path d="M112 252 L144 312 L176 252 Z" fill="#ffffff" />
+          <path d="M136 262 L152 262 L156 318 L144 334 L132 318 Z" fill="#d7261e" />
+          <path d="M104 252 L144 312 L122 330 L96 262 Z" fill="#2c3a5c" />
+          <path d="M184 252 L144 312 L166 330 L192 262 Z" fill="#2c3a5c" />
+          <!-- neck -->
+          <rect x="126" y="214" width="36" height="44" rx="10" fill="#e9b98f" />
+          <g id="pr-head">
+            <ellipse cx="86" cy="160" rx="11" ry="16" fill="#e9b98f" />
+            <ellipse cx="202" cy="160" rx="11" ry="16" fill="#e9b98f" />
+            <ellipse cx="144" cy="156" rx="58" ry="68" fill="#f2c9a0" />
+            <!-- hair -->
+            <path d="M84 150 C78 96 108 74 146 74 C186 74 212 98 204 150 C196 122 178 108 150 110 C126 112 104 118 92 150 Z" fill="#1b1b1b" />
+            <!-- brows -->
+            <rect id="pr-brow-l" x="110" y="128" width="26" height="6" rx="3" fill="#1b1b1b" />
+            <rect id="pr-brow-r" x="152" y="128" width="26" height="6" rx="3" fill="#1b1b1b" />
+            <!-- eyes -->
+            <g id="pr-eyes">
+              <ellipse cx="123" cy="152" rx="6" ry="7" fill="#141414" />
+              <ellipse cx="165" cy="152" rx="6" ry="7" fill="#141414" />
+            </g>
+            <!-- glasses -->
+            <rect x="104" y="138" width="38" height="30" rx="9" fill="none" stroke="#141414" stroke-width="4" />
+            <rect x="146" y="138" width="38" height="30" rx="9" fill="none" stroke="#141414" stroke-width="4" />
+            <line x1="142" y1="150" x2="146" y2="150" stroke="#141414" stroke-width="4" />
+            <!-- nose -->
+            <path d="M144 166 L138 184 L148 184" fill="none" stroke="#c98f66" stroke-width="3" stroke-linecap="round" />
+            <!-- mouth -->
+            <ellipse id="pr-mouth" cx="144" cy="200" rx="15" ry="2.5" fill="#5a1a14" />
+            <path id="pr-smile" d="M130 198 Q144 206 158 198" fill="none" stroke="#5a1a14" stroke-width="3" stroke-linecap="round" />
+          </g>
+        </g>
+        <!-- pointing arm (pivot at shoulder) -->
+        <g id="pr-arm">
+          <path d="M40 350 L70 268 L96 278 L70 352 Z" fill="#1f2a44" />
+          <g>
+            <rect x="60" y="232" width="34" height="40" rx="14" fill="#f2c9a0" />
+            <rect x="66" y="190" width="11" height="50" rx="5.5" fill="#f2c9a0" />
+          </g>
+        </g>
+      </svg>
+      <div id="pr-tag">컨설턴트</div>
+    </div>
+  </div>
+  <script>
+    const ENV = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.03,0.17,0.47,0.81,0.97,0.94,0.65,0.47,0.76,0.97,0.68,0.23,0.24,0.68,0.96,0.88,0.62,0.42,0.35,0.33,0.22,0.06,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.02,0.11,0.41,0.78,0.7,0.52,0.78,0.75,0.25,0.06,0.38,0.61,0.34,0.06,0.21,0.62,0.69,0.51,0.69,0.95,0.84,0.48,0.28,0.25,0.2,0.4,0.72,0.62,0.29,0.09,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.25,0.75,0.97,0.73,0.5,0.72,0.87,0.54,0.18,0.29,0.7,0.89,0.87,0.64,0.31,0.1,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.03,0.16,0.48,0.85,0.94,0.85,0.88,0.94,0.9,0.73,0.64,0.84,0.94,0.79,0.51,0.25,0.38,0.56,0.56,0.75,0.78,0.63,0.81,0.94,0.74,0.5,0.29,0.15,0.06,0.08,0.31,0.62,0.71,0.52,0.49,0.53,0.3,0.14,0.14,0.3,0.62,0.55,0.32,0.5,0.6,0.43,0.55,0.83,0.71,0.29,0.21,0.6,0.88,0.79,0.55,0.56,0.83,0.97,0.98,0.99,0.91,0.61,0.3,0.33,0.57,0.64,0.53,0.35,0.26,0.28,0.2,0.05,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.12,0.26,0.37,0.66,0.93,1,0.97,0.93,0.93,0.85,0.56,0.26,0.08,0.01,0,0,0,0,0,0,0,0,0,0.11,0.48,0.85,0.97,0.92,0.71,0.37,0.09,0.25,0.75,1,0.76,0.27,0.2,0.62,0.81,0.64,0.66,0.9,0.92,0.6,0.17,0,0.1,0.25,0.23,0.07,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.23,0.71,0.85,0.7,0.79,0.96,1,1,1,0.99,0.95,0.89,0.67,0.29,0.32,0.77,0.97,0.78,0.63,0.75,0.9,0.96,0.92,0.73,0.47,0.25,0.12,0.06,0.1,0.18,0.34,0.63,0.63,0.37,0.45,0.61,0.35,0.14,0.13,0.24,0.52,0.5,0.26,0.38,0.55,0.44,0.49,0.75,0.73,0.4,0.1,0.06,0.24,0.36,0.24,0.06,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0.21,0.62,0.86,0.77,0.72,0.82,0.85,0.88,0.66,0.22,0.07,0.21,0.34,0.35,0.25,0.15,0.34,0.78,0.91,0.82,0.89,0.89,0.68,0.44,0.28,0.14,0.06,0.17,0.43,0.55,0.46,0.49,0.68,0.77,0.66,0.45,0.41,0.4,0.18,0.02,0.27,0.67,0.62,0.45,0.67,0.78,0.46,0.35,0.73,0.81,0.4,0.11,0.28,0.68,0.95,0.91,0.6,0.29,0.24,0.42,0.6,0.59,0.4,0.23,0.23,0.21,0.08,0.01,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.02,0.24,0.69,0.96,1,0.88,0.7,0.76,0.92,0.92,0.87,0.93,0.9,0.66,0.44,0.25,0.12,0.07,0.18,0.34,0.25,0.09,0.17,0.48,0.81,0.77,0.35,0.15,0.44,0.85,0.94,0.8,0.54,0.28,0.25,0.31,0.52,0.86,0.82,0.44,0.42,0.8,0.89,0.6,0.43,0.45,0.32,0.1,0.13,0.39,0.68,0.71,0.35,0.16,0.47,0.86,0.94,0.81,0.61,0.36,0.29,0.35,0.24,0.19,0.47,0.62,0.48,0.57,0.78,0.65,0.32,0.08,0.06,0.19,0.2,0.07,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.08,0.34,0.7,0.89,0.73,0.62,0.83,0.89,0.79,0.87,0.95,0.97,1,0.98,0.94,0.88,0.8,0.59,0.34,0.28,0.23,0.1,0.02,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.01,0.1,0.4,0.78,0.72,0.55,0.79,0.8,0.59,0.78,0.88,0.67,0.45,0.26,0.16,0.32,0.7,0.88,0.75,0.72,0.89,1,1,0.95,0.84,0.77,0.6,0.32,0.24,0.24,0.13,0.03,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0.04,0.25,0.46,0.42,0.48,0.82,1,0.83,0.47,0.25,0.15,0.31,0.76,0.95,0.84,0.83,0.93,0.91,0.83,0.92,0.96,0.86,0.8,0.7,0.38,0.29,0.49,0.4,0.12,0.02,0,0,0,0,0,0,0,0,0,0,0,0.16,0.57,0.91,1,1,0.97,0.94,0.97,1,1,0.76,0.35,0.28,0.4,0.58,0.86,1,1,0.97,0.91,0.84,0.72,0.58,0.56,0.55,0.41,0.3,0.26,0.15,0.04,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0];
+    const tl = gsap.timeline({ paused: true });
+    const mouth = document.querySelector("#pr-mouth");
+    const smile = document.querySelector("#pr-smile");
+    const head = document.querySelector("#pr-head");
+    const clock = { t: 0 };
+    // mouth, smile and head nod follow the narration loudness at the current frame
+    tl.fromTo(clock, { t: 0 }, { t: 30, duration: 30, ease: "none", onUpdate: () => {
+      const i = Math.min(ENV.length - 1, Math.max(0, Math.floor(clock.t * 30)));
+      const a = ENV[i];
+      mouth.setAttribute("ry", (2.5 + a * 13).toFixed(2));
+      mouth.setAttribute("rx", (15 - a * 3).toFixed(2));
+      smile.style.opacity = a > 0.08 ? 0 : 1;
+      const nod = a * 3 * Math.sin(i * 0.35);
+      head.setAttribute("transform", "rotate(" + nod.toFixed(2) + " 144 220) translate(0 " + (a * 2).toFixed(2) + ")");
+    } }, 0);
+    // card pops in on frame 0
+    tl.fromTo("#pr-card", { scale: 0.7, transformOrigin: "100% 100%" }, { scale: 1, duration: 0.45, ease: "back.out(2)" }, 0);
+    // blinks
+    [1.7, 5.1, 8.9, 13.0, 16.2, 20.6, 24.1, 27.6].forEach((t) => {
+      tl.fromTo("#pr-eyes", { scaleY: 1, svgOrigin: "144 152" }, { scaleY: 0.1, svgOrigin: "144 152", duration: 0.06, yoyo: true, repeat: 1, ease: "none", immediateRender: false }, t);
+    });
+    // pointing gestures toward the content (up-left) on key words
+    tl.set("#pr-arm", { svgOrigin: "70 330", rotation: 0, y: 120 }, 0);
+    [[2.25, 1.9], [6.6, 2.2], [12.4, 3.6], [18.3, 2.4], [25.9, 2.6]].forEach(([t, hold]) => {
+      tl.fromTo("#pr-arm", { y: 120, rotation: 0 }, { y: 0, rotation: -8, duration: 0.3, ease: "back.out(1.8)", svgOrigin: "70 330", immediateRender: false }, t);
+      tl.to("#pr-arm", { y: 120, rotation: 0, duration: 0.3, ease: "power2.in", svgOrigin: "70 330" }, t + hold);
+      tl.fromTo(["#pr-brow-l", "#pr-brow-r"], { y: 0 }, { y: -6, duration: 0.15, yoyo: true, repeat: 1, ease: "power2.out", immediateRender: false }, t);
+    });
+    window.__timelines["presenter"] = tl;
+  </script>
+</template>

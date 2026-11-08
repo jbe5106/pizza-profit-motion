@@ -1,0 +1,52 @@
+<template>
+  <style>
+    @font-face { font-family: "KR"; src: local("Malgun Gothic Bold"), local("MalgunGothicBold"); font-weight: 700; }
+    #root { position: absolute; inset: 0; background: #d7261e; overflow: hidden; }
+    #s1-kicker { position: absolute; left: 192px; top: 150px; font-family: "KR"; font-weight: 700; font-size: 72px; color: #fff; letter-spacing: -0.02em; }
+    #s1-kicker b { color: #ffc21a; }
+    .s1-line { position: absolute; left: 0; right: 330px; display: flex; justify-content: center; align-items: flex-start; gap: 44px; }
+    #s1-l1 { top: 360px; }
+    #s1-l2 { top: 640px; }
+    .s1-term { display: flex; flex-direction: column; align-items: center; }
+    .s1-w { font-family: "Archivo Black"; font-size: 128px; line-height: 1; color: #fff; letter-spacing: -0.02em; }
+    .s1-op { font-family: "Archivo Black"; font-size: 128px; line-height: 1; color: #141414; }
+    .s1-kr { font-family: "KR"; font-weight: 700; font-size: 44px; color: #141414; margin-top: 18px; }
+    #s1-profit { position: relative; padding: 0 28px; }
+    #s1-band { position: absolute; left: 0; top: -6px; width: 100%; height: 140px; background: #ffc21a; transform-origin: left center; }
+    #s1-profit .s1-w { position: relative; color: #141414; }
+  </style>
+  <div id="root" data-composition-id="s1" data-width="1920" data-height="1080">
+    <div id="s1-kicker">이익의 <b>공식</b></div>
+    <div id="s1-l1" class="s1-line">
+      <div class="s1-term" id="s1-price"><div class="s1-w">PRICE</div><div class="s1-kr">가격</div></div>
+      <div class="s1-op" id="s1-x">×</div>
+      <div class="s1-term" id="s1-qty"><div class="s1-w">QUANTITY</div><div class="s1-kr">수량</div></div>
+    </div>
+    <div id="s1-l2" class="s1-line">
+      <div class="s1-op" id="s1-minus">−</div>
+      <div class="s1-term" id="s1-cost"><div class="s1-w">COST</div><div class="s1-kr">비용</div></div>
+      <div class="s1-op" id="s1-eq">=</div>
+      <div class="s1-term"><div id="s1-profit"><div id="s1-band"></div><div class="s1-w" id="s1-profit-w">PROFIT</div></div><div class="s1-kr" id="s1-profit-kr">이익</div></div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    // kicker: visible on frame 0, settles
+    tl.fromTo("#s1-kicker", { scale: 1.25, transformOrigin: "left center" }, { scale: 1, duration: 0.6, ease: "expo.out" }, 0);
+    // PRICE slams on "가격"
+    tl.fromTo("#s1-price", { opacity: 0, scale: 2.2 }, { opacity: 1, scale: 1, duration: 0.24, ease: "expo.out" }, 2.25);
+    // × spins in on "곱하기"
+    tl.fromTo("#s1-x", { opacity: 0, rotation: -270, scale: 0.2 }, { opacity: 1, rotation: 0, scale: 1, duration: 0.3, ease: "back.out(2)" }, 2.7);
+    // QUANTITY stretches out on "수량"
+    tl.fromTo("#s1-qty", { opacity: 0, scaleX: 0, transformOrigin: "left center" }, { opacity: 1, scaleX: 1, duration: 0.3, ease: "power4.out" }, 3.15);
+    // − COST drop from above on "빼기 비용"
+    tl.fromTo("#s1-minus", { opacity: 0, x: -160 }, { opacity: 1, x: 0, duration: 0.2, ease: "power3.out" }, 3.95);
+    tl.fromTo("#s1-cost", { opacity: 0, y: -420 }, { opacity: 1, y: 0, duration: 0.32, ease: "bounce.out" }, 4.2);
+    // = PROFIT: yellow band wipes, word lands
+    tl.fromTo("#s1-eq", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, duration: 0.18, ease: "power3.out" }, 4.55);
+    tl.fromTo("#s1-band", { scaleX: 0 }, { scaleX: 1, duration: 0.3, ease: "expo.inOut" }, 4.62);
+    tl.fromTo("#s1-profit-w", { opacity: 0, scale: 0.6 }, { opacity: 1, scale: 1, duration: 0.25, ease: "back.out(2.5)" }, 4.85);
+    tl.fromTo("#s1-profit-kr", { opacity: 0 }, { opacity: 1, duration: 0.2 }, 4.9);
+    window.__timelines["s1"] = tl;
+  </script>
+</template>

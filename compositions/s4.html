@@ -1,0 +1,43 @@
+<template>
+  <style>
+    @font-face { font-family: "KR"; src: local("Malgun Gothic Bold"), local("MalgunGothicBold"); font-weight: 700; }
+    #root { position: absolute; inset: 0; background: #ffc21a; overflow: hidden; }
+    #s4-tag { position: absolute; left: 192px; top: 130px; font-family: "Archivo Black"; font-size: 72px; color: #141414; }
+    #s4-tag span { font-family: "KR"; font-weight: 700; font-size: 48px; margin-left: 24px; }
+    #s4-num { position: absolute; left: 180px; top: 250px; font-family: "Archivo Black"; font-size: 320px; line-height: 1; color: #141414; letter-spacing: -0.04em; }
+    #s4-line { position: absolute; left: 192px; top: 760px; width: 1180px; height: 10px; background: #141414; transform-origin: left center; }
+    .s4-dot { position: absolute; top: 742px; width: 46px; height: 46px; border-radius: 50%; background: #141414; }
+    #s4-d1 { left: 172px; }
+    #s4-d2 { left: 1352px; }
+    .s4-lab { position: absolute; top: 820px; font-family: "KR"; font-weight: 700; font-size: 44px; color: #141414; }
+    #s4-a { left: 192px; }
+    #s4-b { left: 1110px; }
+    #s4-stamp { position: absolute; right: 192px; top: 300px; padding: 14px 40px; border: 12px solid #d7261e; font-family: "KR"; font-weight: 700; font-size: 120px; line-height: 1.1; color: #d7261e; }
+  </style>
+  <div id="root" data-composition-id="s4" data-width="1920" data-height="1080">
+    <div id="s4-tag">PROFIT<span>영업이익률</span></div>
+    <div id="s4-num">17.7%</div>
+    <div id="s4-line"></div>
+    <div class="s4-dot" id="s4-d1"></div>
+    <div class="s4-dot" id="s4-d2"></div>
+    <div class="s4-lab" id="s4-a">2022 · 17.7%</div>
+    <div class="s4-lab" id="s4-b">2026 · 17.4%</div>
+    <div id="s4-stamp">제자리</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    const num = document.querySelector("#s4-num");
+    const o = { v: 17.7 };
+    // 17.7% is up on frame 0, punches on "이익률은"
+    tl.fromTo("#s4-num", { scale: 1.15, transformOrigin: "left center" }, { scale: 1, duration: 0.5, ease: "expo.out" }, 0.35);
+    tl.fromTo(["#s4-d1", "#s4-a"], { opacity: 0 }, { opacity: 1, duration: 0.2 }, 0.9);
+    // flat line draws while the number ticks down on "17.4"
+    tl.fromTo("#s4-line", { scaleX: 0 }, { scaleX: 1, duration: 1.3, ease: "power2.inOut" }, 1.2);
+    tl.fromTo(o, { v: 17.7 }, { v: 17.4, duration: 0.7, ease: "steps(3)", onUpdate: () => (num.textContent = o.v.toFixed(1) + "%") }, 1.75);
+    tl.fromTo(["#s4-d2", "#s4-b"], { opacity: 0 }, { opacity: 1, duration: 0.2 }, 2.45);
+    // "제자리입니다": stamp slams
+    tl.fromTo("#s4-stamp", { opacity: 0, scale: 2.6, rotation: 4 }, { opacity: 1, scale: 1, rotation: -6, duration: 0.22, ease: "power4.in" }, 4.0);
+    tl.fromTo("#root", { x: 0 }, { x: 10, duration: 0.04, yoyo: true, repeat: 3, ease: "none" }, 4.22);
+    window.__timelines["s4"] = tl;
+  </script>
+</template>
